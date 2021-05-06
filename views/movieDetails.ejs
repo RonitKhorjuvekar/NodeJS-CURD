@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+        <div class="wrapper">
+            <div class="all-movies">
+
+                <div class="movie-detail">
+                    <h2 class="head-detail">
+                        <%= movieDetail.name %>
+                    </h2>
+                    <img src="/uploads/images/<%= movieDetail.img %>" alt="Single movie image" width="300px"
+                        class="img">
+                    <div class="summaryy">
+                        <p>
+                            <%= movieDetail.summary %>
+                        </p>
+                    </div>
+                        
+                </div>
+
+                <div class="movie-button">
+                    <a class="update" href="/movies/update/<%= movieDetail._id %>"> Update </a>
+                    <a class="delete" data-document="<%= movieDetail._id %>"> Delete </a>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+
+            const deleteMovie = document.querySelector('a.delete');
+            deleteMovie.addEventListener('click', (event) => {
+                const deletePoint = `/movies/${deleteMovie.dataset.document}`;
+
+                fetch(deletePoint, {
+                    method: 'DELETE'
+                })
+                    .then((response) => response.json())
+                    .then((data) => window.location.href = data.redirect)
+                    .catch((err) => { console.log(err); })
+
+            })
+
+        </script>
+
+</body>
+
+</html>

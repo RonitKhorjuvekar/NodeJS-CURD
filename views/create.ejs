@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create movies</title>
+    <link type="text/css" href="/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="div-main">
+
+        <div class="wrapper">
+
+            <main>
+                <div class="main-form">
+
+                <form action="/movies" method="POST" enctype="multipart/form-data">
+            
+                    <h3>Enter movie</h3>
+                    <div class="inside">
+                        <label for="movieName">Movie Name</label>
+                        <input type="text" placeholder="Enter movie name" id="movieName" name="movieName">
+                    </div>
+            
+                    <div class="inside">
+                        <label for="movieName">Movie Name</label>
+                        <input type="file" placeholder="Enter movie name" id="movieName" name="movieImage">
+                    </div>
+            
+                    <div class="inside">
+                        <label for="summary">Movie Name</label>
+                        <input type="text" placeholder="Enter summary" id="summary" name="summary">
+                    </div>
+            
+                    <div class="inside">
+                        <button type="submit">Submit</button>
+                    </div>
+            
+                </form>
+            </div>
+                </main>
+        </div>
+        
+    </div>
+    
+
+</body>
+
+</html>

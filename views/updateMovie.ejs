@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Update Movie</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+    <div class="wrapper">
+        <div class="main-form">
+    <form enctype="multipart/form-data" data-document="<%= movieUpdate._id %>" class="getId">
+
+        <h3>Enter movie</h3>
+        <div>
+            <label for="movieName">Movie Name</label>
+            <input type="text" placeholder="Enter movie name" id="movieName" name="movieNameUpdate" value="<%= movieUpdate.name %>">
+        </div>
+
+        <div>
+            <label for="movieName">Movie Name</label>
+            <input type="file" placeholder="Enter movie name" id="movieImg" name="movieImageUpdate" src="<%= movieUpdate.img %>">
+            <img src="/uploads/images/<%= movieUpdate.img %>" alt="" width="200px">
+        </div>
+
+        <div>
+            <label for="summary">Movie Name</label>
+            <input type="text" placeholder="Enter summary" id="movieSummary" name="summaryUpadte" value="<%= movieUpdate.summary %>">
+        </div>
+
+        <div>
+           
+            <button class="update" data-document="<%= movieUpdate._id %>" type="submit">Update</button>
+        </div>
+
+    </form>
+</div>
+    </div>
+
+    <script>
+
+        
+
+        const updateMovie = document.querySelector('.update');
+        updateMovie.addEventListener('click', (event) => {
+            const name = document.getElementById("movieName").value;
+            const summary = document.getElementById("movieSummary").value;
+            const img = document.getElementById("movieImg").value;
+            console.log(name)
+            console.log(summary)
+            const updatePoint = `/movies/update/${updateMovie.dataset.document}`;
+            fetch(updatePoint, {
+                method : 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    summary:summary,
+                    img:img
+                    
+                })
+	})
+})
+
+    </script>
+
+</body>
+
+</html>

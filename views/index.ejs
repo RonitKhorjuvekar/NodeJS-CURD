@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+        <h2 class="all">All movies</h2>
+        <!-- use this main -->
+
+        <div class="main-form1">
+            <div class="wrapper">
+                <main>
+
+                    <div class="continer-index">
+
+
+                        <% if(movies.length> 0) { %>
+                            <% movies.forEach(movie=> { %>
+                                <div class="card">
+
+                                    <div class="top-main">
+                                        <a href="/movies/<%= movie._id %>">
+                                            <img src="/uploads/images/<%= movie.img %>" alt="" width="200px">
+                                        </a>
+                                    </div>
+                                    <div class="botton-main">
+                                        <div class="movie-name">
+                                            <h1>Movie Name</h1>
+                                            <h3>
+                                                <%= movie.name %>
+                                            </h3>
+                                        </div>
+                                        <div class="movie-summary">
+                                            <h1>Movie Summary</h1>
+                                            <p>
+
+                                                <%= movie.summary %>
+
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% }); %>
+                                    <% } else { %>
+                                        <p>No movies available</p>
+                                        <% } %>
+
+                    </div>
+                </main>
+            </div>
+        </div>
+
+
+
+
+</body>
+
+</html>
