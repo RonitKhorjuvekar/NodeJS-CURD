@@ -7,7 +7,7 @@ The project is developed in NodeJS and mongoDB , Using API, users can Create, Re
 -> Steps to deploy project
 1) Download the project and open it in VS code.
 2) open VS code terminal and type "npm install",  this command will install all the libraries.
-3) After the libraries are installed, type this command "node app", this command will create a server to run our project.
+3) After the libraries are installed, type this command "node app", this command will create a server on port number:- 4000 , to run our project.
 
 
 -> How to connect this project to mongoDB
